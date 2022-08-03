@@ -1,0 +1,111 @@
+{
+	"name": "widgets",
+	"properties": {
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "sparkpool1",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "28g",
+			"driverCores": 4,
+			"executorMemory": "28g",
+			"executorCores": 4,
+			"numExecutors": 2,
+			"runAsWorkspaceSystemIdentity": false,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2",
+				"spark.autotune.trackingId": "83f342f0-7887-41e1-a4e5-11ca6f201a20"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"synapse_widget": {
+				"version": "0.1"
+			},
+			"enableDebugMode": false,
+			"kernelspec": {
+				"name": "synapse_pyspark",
+				"display_name": "Synapse PySpark"
+			},
+			"language_info": {
+				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/3bfb7bc1-9c64-486b-a0a7-3c27e1c58550/resourceGroups/Synapse/providers/Microsoft.Synapse/workspaces/synapse-practice/bigDataPools/sparkpool1",
+				"name": "sparkpool1",
+				"type": "Spark",
+				"endpoint": "https://synapse-practice.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/sparkpool1",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net",
+					"authHeader": null
+				},
+				"sparkVersion": "3.2",
+				"nodeCount": 10,
+				"cores": 4,
+				"memory": 28,
+				"extraHeader": null
+			},
+			"sessionKeepAliveTimeout": 30
+		},
+		"cells": [
+			{
+				"cell_type": "code",
+				"source": [
+					"from ipywidgets import widgets\r\n",
+					"\r\n",
+					"lbl1=widgets.Label(value='first name')\r\n",
+					"display(lbl1)\r\n",
+					"txt1=widgets.Text()\r\n",
+					"display(txt1)\r\n",
+					"\r\n",
+					"lbl2= widgets.Label(value='last name')\r\n",
+					"display(lbl2)\r\n",
+					"txt2=widgets.Text()\r\n",
+					"display(txt2)\r\n",
+					"\r\n",
+					"\r\n",
+					"btn=widgets.Button(description='get full name')\r\n",
+					"\r\n",
+					"lblfn=widgets.Label()\r\n",
+					"\r\n",
+					"\r\n",
+					"def getFullName(b):\r\n",
+					"\r\n",
+					"    lblfn=widgets.Label(value='full name is:'+txt1.value+' '+txt2.value)\r\n",
+					"    display(lblfn)\r\n",
+					"\r\n",
+					"\r\n",
+					"btn.on_click(getFullName)\r\n",
+					"\r\n",
+					""
+				],
+				"attachments": null,
+				"execution_count": null
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"btn.click()"
+				],
+				"attachments": null,
+				"execution_count": null
+			}
+		]
+	}
+}
